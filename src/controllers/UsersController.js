@@ -78,7 +78,7 @@ class UsersController {
   async index(request, response) {
     const db = await sqliteConnection()
 
-    const users = await db.get('SELECT * FROM users')
+    const users = await db.all('SELECT * FROM users')
 
     if (!users) {
       throw new AppError('Nenhum usuário encontrado')
